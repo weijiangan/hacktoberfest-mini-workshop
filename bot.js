@@ -97,7 +97,8 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches a keyword
     // and send back the template example. Otherwise, just echo the text we received.
     const structure = {
-      "hi|hello|hey": "welcome"
+      "hi|hello|hey": "welcome",
+      "open source": "oss"
     };
     let question = null;
     for (let i in structure) {
@@ -111,6 +112,10 @@ function receivedMessage(event) {
           senderID,
           "Welcome to Hacktoberfest @Taylor's University!"
         );
+        break;
+      }
+      case "oss": {
+        sendTextMessage(senderID, "OSS is the best thing in the world!");
         break;
       }
       default:
